@@ -1,0 +1,42 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="card card-default">
+            <div class="card-header">
+                <h3 class="card-title">Demander un document</h3>
+            </div>
+            <form ngNativeValidate [formGroup]="DocumentRhService.formForAsk">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Type du document</label>
+                        <select [(ngModel)]="selectedValue" class="custom-select custom-select-lg mb-3"
+                            style="width: 100%;" formControlName="type" required>
+                            <option selected="selected">Attestation</option>
+                            <option>Notes de frais</option>
+                            <option>Indémnités</option>
+                        </select>
+                    </div>
+                    <div class="form-group" *ngIf="selectedValue === 'Attestation'">
+                        <label>Titre</label>
+                        <select [ngModel] class="custom-select custom-select-lg mb-3 form-control" style="width: 100%;"
+                            formControlName="titre" required>
+                            <option selected="selected">Attestation de travail</option>
+                            <option>Attestation de congé</option>
+                            <option>Attestation de salaire </option>
+                            <option>Attestation de retenue à la source</option>
+                            <option>Attestation de stage </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Commentaire</label>
+                        <textarea class="form-control" rows="3" placeholder="vous pouvez ajouter un commentaire"
+                            formControlName="commentaire"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-danger" (click)="AskForDocument()"> Demander <i class="fa"></i>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>

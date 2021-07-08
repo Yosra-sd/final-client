@@ -1,0 +1,128 @@
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Ajout d'un client</h1>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Veuillez ajouter les informations marquées par <span
+                                style="color: red;">*</span></h4>
+                    </div>
+                    <div class="card-body">
+                        <form ngNativeValidate [formGroup]="clientService.formforclientadd">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label for="client_name">Nom du client / de la société <span style="color: red;"> *
+                                        </span> :</label>
+                                    <input type="text" [ngModel] class="form-control" id="client_name" placeholder=""
+                                        formControlName="client_name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label for="contact_principal">Contact principal<span style="color: red;"> *
+                                        </span> :</label>
+                                    <input [ngModel] type="text" class="form-control" id="contact_principal"
+                                        placeholder="" formControlName="contact_principal" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label for="raison_sociale">Raison sociale <span style="color: red;"> *
+                                        </span> :</label>
+                                    <input type="text" class="form-control" id="raison_sociale" placeholder=""
+                                        formControlName="raison_sociale" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="col-sm-6">
+                                        <label for="email">Email <span style="color: red;"> *
+                                            </span> :</label>
+                                        <input type="email" class="form-control" id="email" placeholder=""
+                                            formControlName="email" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="numTelephone">N° téléphone <span style="color: red;"> *
+                                            </span> :</label>
+                                        <input type="text" class="form-control" id="numTelephone" placeholder=""
+                                            formControlName="numTelephone" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="col-sm-6">
+                                        <label for="adresse">Adresse <span style="color: red;"> *
+                                            </span> :</label>
+                                        <br>
+                                        <input formControlName="adresse" type="text" class="form-control" placeholder=""
+                                            required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="site_web">Site web :</label>
+                                        <br>
+                                        <input formControlName="site_web" type="text" class="form-control"
+                                            placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="col-sm-6">
+                                        <label for="RIB">RIB <span style="color: red;"> *
+                                            </span> :</label>
+                                        <br>
+                                        <input formControlName="RIB" type="text" class="form-control"
+                                            placeholder="Default" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="MF">MF :</label>
+                                        <br>
+                                        <input formControlName="MF" type="text" class="form-control"
+                                            placeholder="Default">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="col-sm-6">
+                                        <label for="RC">RC :</label>
+                                        <br>
+                                        <input formControlName="RC" class="form-control" placeholder="Default">
+                                    </div>
+                                    <span class="input-group-btn" style="width:0px;"></span>
+                                    <div class="col-sm-6">
+                                        <label for="Code_TVA">Code TVA :</label>
+                                        <br>
+                                        <input formControlName="Code_TVA" type="text" class="form-control"
+                                            placeholder="Default">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </form>
+                        <div class="card-footer">
+
+                            <a type="submit" class="btn btn-app bg-success" (click)="addClient()">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

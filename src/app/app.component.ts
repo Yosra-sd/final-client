@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/auth/authentication.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-client';
+
+  constructor (private authService: AuthenticationService, public router: Router) {}
+
+  ngOnInit(): void {
+    
+  }
 }

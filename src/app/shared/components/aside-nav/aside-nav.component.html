@@ -1,0 +1,212 @@
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="/" class="brand-link">
+        <img src="/assets/adminlte/dist/img/AdminLTELogo.png" alt="User Self-Desk"
+            class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">RH Application</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <!-- <img src="/assets/adminlte/dist/img/user-yosra.jpg" class="img-circle elevation-2" alt="User Image"> -->
+            </div>
+            <div class="info">
+                <a href="#" class="d-block" id="testname">Yosra Sahnoun</a>
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column text-sm nav-legacy nav-flat" data-widget="treeview"
+                role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+                <li class="nav-item">
+                    <a routerLink="/dashboard" class="nav-link">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>
+                            Acceuil
+                        </p>
+                    </a>
+                </li>
+                <!-- <li class="nav-item has-treeview ">
+                   
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Test
+
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a routerLink="/" class="nav-link active">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Test</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Test</p>
+                                <span class="right badge badge-danger">New</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li> -->
+
+                <li class="nav-header">Portail RH</li>
+                <li class="nav-item has-treeview">
+                    <a routerLink="" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Mon profil
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a routerLink="/list-users" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>
+                            Liste des employés
+
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-header">Kiosque RH</li>
+                <li class="nav-item has-treeview" [class.menu-open]="clicked=== true"
+                    (click)="this.clicked =! this.clicked ">
+                    <a routerLink="/dashboard/kiosque/mes-demandes" routerLinkActive="active" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>
+                            Mes demandes
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a routerLink="/dashboard/kiosque/mes-demandes/ask-for-document" routerLinkActive="active"
+                                class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Demander un document</p>
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item has-treeview">
+                            <a routerLink="/dashboard/facturation/list-clients/add-client" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Test
+                                    <i class="right fas"></i>
+                                </p>
+                            </a>
+
+                        </li> -->
+                    </ul>
+                </li>
+                <li class="nav-item has-treeview" *ngIf="authService.getRole() == 'Responsable'">
+                    <a routerLink="/dashboard/kiosque/consultation-demandes" routerLinkActive="active" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>
+                            Consultation/Validation
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-header">Congés & Absences </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-calendar"></i>
+                        <p>
+                            Calendrier
+
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>
+                            Mes demandes
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Demander un congé</p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Congés restants
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>Level test</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>Level test</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a routerLink="/all-conge" class="nav-link">
+                        <i class="nav-icon fas fa-calendar"></i>
+                        <p>
+                            Consultation/Validation
+
+                        </p>
+                    </a>
+                </li>
+                <li *ngIf="authService.getRole() == 'Responsable'" class="nav-header">Administration/Facturation</li>
+                <li *ngIf="authService.getRole() == 'Responsable'" class="nav-item has-treeview">
+                    <a routerLink="/dashboard/facturation/list-clients" routerLinkActive="active" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Liste des clients
+                        </p>
+                    </a>
+                </li>
+                <li *ngIf="authService.getRole() == 'Responsable'" class="nav-item has-treeview">
+                    <a routerLink="/dashboard/facturation/create-fact-document" routerLinkActive="active"
+                        class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>
+                            Générer une facture/devis
+                        </p>
+                    </a>
+                </li>
+                <li *ngIf="authService.getRole() == 'Responsable'" class="nav-item has-treeview">
+                    <a routerLink="/dashboard/facturation/list-fact-documents" routerLinkActive="active"
+                        class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>
+                            Documents facturation
+                        </p>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

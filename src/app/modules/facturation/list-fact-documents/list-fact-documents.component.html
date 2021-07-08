@@ -1,0 +1,72 @@
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1><strong> DEVIS/FACTURE</strong></h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a routerLink="/Dashboard">Acceuil</a></li>
+                    <li class="breadcrumb-item active">Liste des documents</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Liste des documents</h3>
+                    </div>
+
+                    <div class="card-body">
+                        <table datatable [dtOptions]="dtOptions" #profileTable id="profiletable"
+                            class="table table-bordered table-striped" *ngIf="factDocService.listFactDocs">
+                            <thead>
+                                <tr>
+
+                                    <th>Type</th>
+                                    <th>Client</th>
+                                    <th>Description</th>
+                                    <th>Date création</th>
+                                    <th>Document</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let factDoc of factDocService.listFactDocs">
+
+                                    <td>{{factDoc.type}}
+                                        <i class="fas fa-file-alt"></i>
+                                    </td>
+                                    <td>{{factDoc.client_name}}</td>
+                                    <td>{{factDoc.description }}</td>
+                                    <td>{{factDoc.date_creation | date: 'dd/MM/yyyy'}}</td>
+
+                                    <td class="download">
+                                        <a *ngIf="factDoc.withLink == true" class="btn btn-app bg-danger testbtn"
+                                            (click)="downloadPdf(factDoc.documentLink, 'document')">
+                                            <i class="fas fa-file-pdf testicon"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Client</th>
+                                    <th>Description</th>
+                                    <th>Date création</th>
+                                    <th>Document</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

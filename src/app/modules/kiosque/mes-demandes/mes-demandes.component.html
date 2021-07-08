@@ -1,0 +1,72 @@
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>MES DEMANDES DE DOCUMENT</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a routerLink="/Dashboard">Acceuil</a></li>
+                    <li class="breadcrumb-item active">Liste des demandes</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Liste de mes demandes</h3>
+                    </div>
+
+                    <div class="card-body">
+                        <table datatable [dtOptions]="dtOptions" #profileTable id="profiletable"
+                            class="table table-bordered table-striped" *ngIf="DocumentRhService.listDocsRh">
+                            <thead>
+                                <tr>
+
+                                    <th>Titre</th>
+                                    <th>Type</th>
+                                    <th>Date Demande</th>
+                                    <th>Date Envoi</th>
+                                    <th>Document</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let docsRh of DocumentRhService.listDocsRh">
+
+                                    <td>{{docsRh.titre}}
+                                        <i class="fas fa-file-alt"></i>
+                                    </td>
+                                    <td>{{docsRh.type}}</td>
+                                    <td>{{docsRh.dateDemande | date: 'dd/MM/yyyy'}}</td>
+                                    <td>{{docsRh.dateEnvoi | date: 'dd/MM/yyyy'}}</td>
+                                    <td class="download">
+                                        <a *ngIf="docsRh.withLink == true" class="btn btn-app bg-danger testbtn"
+                                            (click)="downloadPdf(docsRh.documentLink, 'document')">
+                                            <i class="fas fa-file-pdf testicon"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Titre</th>
+                                    <th>Type</th>
+                                    <th>Date Demande</th>
+                                    <th>Date Envoi</th>
+                                    <th>Document</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<router-outlet></router-outlet>
